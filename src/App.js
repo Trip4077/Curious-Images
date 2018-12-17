@@ -1,25 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './css/index.css';
+
+import axios from 'axios';
+
+import RoverImage from './components/RoverImage/RoverImage';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      curiosity: [],
+    }
+  }
+
+
+  componentDidMount() {
+    const API_KEY = 'UxIddbfdvlQHkDuOVoEqf07DhCghzLy3CPsu0Yl0'
+    const END_POINT = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=100&api_key=';
+
+    axios.get(END_POINT+API_KEY)
+      .then(response => {
+        this.setState({
+          curiosity: response.data.photos
+        });
+        console.log(this.state)
+      })
+
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   render() {
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+          {this.state.curiosity.length === 0 ? <h1>Loading</h1>
+            : this.state.curiosity.map(image => <RoverImage key={Math.random()}
+                                                            camera={image.camera}
+                                                            date={image.earth_date}
+                                                            id={image.id}
+                                                            img_src={image.img_src}
+                                                            />
+                                                      )}
       </div>
     );
   }
