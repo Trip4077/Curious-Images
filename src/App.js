@@ -39,6 +39,7 @@ class App extends Component {
           {this.state.curiosity.length === 0 ? <h1>Loading</h1>
             : this.state.curiosity.map(image => <RoverImage key={Math.random()}
                                                             camera={image.camera}
+                                                            rover={image.rover}
                                                             date={image.earth_date}
                                                             id={image.id}
                                                             img_src={image.img_src}
