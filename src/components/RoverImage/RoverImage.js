@@ -10,25 +10,35 @@ class RoverImage extends React.Component {
     }
   }
 
+  toggleFullscreen() {
+    const toggle = !this.state.fullscreen;
+
+    this.setState({
+      fullscreen: toggle,
+    })
+  }
+
   render() {
     let fullscreen = this.state.fullscreen;
     let optDetails;
+    let containerClass = "image-container";
 
     if(fullscreen) {
       optDetails = <Details key={Math.random()}
                             camera={this.props.camera}
                             rover={this.props.rover}
-                            date={this.props.earth_date}
+                            date={this.props.date}
                             id={this.props.id}/>;
+      containerClass = "image-container fullscreen"
       console.log('full')
     } else {
       console.log('gallery')
     }
 
     return (
-      <div className="image-container">
+      <div className={containerClass}>
         {optDetails}
-        <img src={this.props.img_src} alt="rover" />
+        <img onClick={this.toggleFullscreen.bind(this)} src={this.props.img_src} alt="rover" />
       </div>
     );
   }

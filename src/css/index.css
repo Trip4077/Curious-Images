@@ -151,6 +151,7 @@ html body {
   border: 1px solid red;
 }
 .image-container img {
+  cursor: pointer;
   max-height: 200px;
   width: 100%;
   max-width: 300px;
@@ -166,4 +167,47 @@ html body {
 }
 .image-container .image-container__text {
   color: white;
+}
+.fullscreen {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  z-index: 9001;
+}
+.fullscreen img {
+  height: 100vh;
+  width: 75%;
+  display: block;
+  margin: 0 auto;
+  max-height: none;
+  max-width: none;
+  filter: none;
+  opacity: 1;
+}
+.fullscreen .image-container__text {
+  position: relative;
+}
+.fullscreen .image-container__text .text--left {
+  position: absolute;
+  top: 25px;
+  left: 15%;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+}
+.fullscreen .image-container__text .text--right {
+  position: absolute;
+  top: 25px;
+  right: 15%;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+}
+.fullscreen .image-container__text p {
+  margin: 15px 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #00FF1B;
 }
