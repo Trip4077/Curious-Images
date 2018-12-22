@@ -138,24 +138,32 @@ html {
   font-size: 62.5%;
 }
 html body {
-  background: radial-gradient(ellipse at top, #000013, black), radial-gradient(ellipse at bottom, #020b39, black);
+  background: #141E30;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   box-sizing: border-box;
 }
 .App {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 0 auto;
-  border: 1px solid red;
+  padding-left: 5%;
+}
+.particles-bg {
+  position: fixed;
+  z-index: -90001;
 }
 .image-container img {
   cursor: pointer;
   max-height: 200px;
   width: 100%;
   max-width: 300px;
-  margin: 10px;
+  margin: 0 3px;
   border-radius: 15px 0px 15px 0px;
   filter: blur(0.75px);
   opacity: 0.6;
@@ -174,7 +182,7 @@ html body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 9001;
 }
 .fullscreen img {

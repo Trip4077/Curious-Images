@@ -60,8 +60,10 @@ html {
   font-size: 62.5%;
 
 	body {
-		background: radial-gradient(ellipse at top, #000013, black),
-	              radial-gradient(ellipse at bottom, #020b39, black);
+		background: #141E30;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 		box-sizing: border-box;
 	}
 }

@@ -30,7 +30,6 @@ class RoverImage extends React.Component {
                             date={this.props.date}
                             id={this.props.id}/>;
       containerClass = "image-container fullscreen"
-      console.log('full')
     } else {
       console.log('gallery')
     }
