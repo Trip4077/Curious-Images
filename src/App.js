@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+
 import './css/index.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import axios from 'axios';
 
 import RoverImage from './components/RoverImage/RoverImage';
+import Pagenav from './components/Pagenav/Pagenav';
 import Particles from 'react-particles-js';
+
 
 class App extends Component {
   constructor() {
@@ -41,7 +45,7 @@ class App extends Component {
           value: 200,
           density: {
             enabled: true,
-            value_area: 600
+            value_area: 800
           }
         },
 
@@ -67,6 +71,8 @@ class App extends Component {
     return (
       <div>
           <Particles className="particles-bg" params={particlesOpt} />
+
+          <h1>Curious Images</h1>
           <div className="App">
             {this.state.curiosity.length === 0 ? <h1>Loading</h1>
               : this.state.curiosity.map(image => <RoverImage key={Math.random()}
@@ -78,6 +84,9 @@ class App extends Component {
                                                               />
                                                         )}
           </div>
+
+
+          <Pagenav />
       </div>
     );
   }
